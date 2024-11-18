@@ -1,9 +1,10 @@
 import express from "express";
 import userController from "../controllers/user/index.controller.js";
+import securityMiddleware from "./../middleware/security/primer.middleware.js";
 
 const router = express.Router();
 
-router.get("/users/hola", userController.saludar);
-router.get("/users/chau", userController.despedir);
+router.get("/users/hola", securityMiddleware, userController.saludar);
+router.get("/users/chau", securityMiddleware, userController.despedir);
 
 export default router;
