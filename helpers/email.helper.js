@@ -1,4 +1,5 @@
 import nodemailer from "nodemailer";
+import errors from "./error.helper.js";
 
 import dotenv from "dotenv";
 
@@ -27,6 +28,7 @@ const sendMail = async (emailTo, subject, body) => {
         await transporter.sendMail(email);
     } catch (error) {
         console.log(error);
+        errors.sendEmailError();
     }
 };
 
