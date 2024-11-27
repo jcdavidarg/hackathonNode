@@ -51,6 +51,9 @@ const conflictError = (msg, code = 'CONFLICT') => {
     internalServerError(msg, "SEND_EMAIL_ERROR");
   }
   
+  const schemaValidationError = (msg = "Error en la validacion de los datos") => {
+    badRequestError(msg)
+  }
   
   export default {
     conflictError,
@@ -59,6 +62,6 @@ const conflictError = (msg, code = 'CONFLICT') => {
     forbiddenError,
     internalServerError,
     sendEmailError,
-    badRequestError/* ,
-    schemaValidationError */
+    badRequestError,
+    schemaValidationError
   }
